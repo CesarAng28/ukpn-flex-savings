@@ -5,7 +5,7 @@ import polars as pl
 from ukpn_flex_savings.config import settings
 
 class UKPNFlexDispatchesService:
-    def __init__(self, api_key:str, dispatch_url:str):
+    def __init__(self, dispatch_url:str, api_key:str):
         self.api_key = api_key
         self.dispatch_url = dispatch_url
         
