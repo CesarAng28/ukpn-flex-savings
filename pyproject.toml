@@ -1,3 +1,7 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "ukpn-flex-savings"
 version = "0.1.0"
@@ -21,3 +25,6 @@ dependencies = [
 dev = [
     "pytest>=9.0.3",
 ]
+
+[project.scripts]   
+ukpn-flex = "ukpn_flex_savings.cli:app"
