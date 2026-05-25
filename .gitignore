@@ -9,6 +9,11 @@ wheels/
 # Virtual environments
 .venv
 
-data/
-
 .env
+# Ignore Jupyter Notebook checkpoints
+experiments/
+
+.ipynb_checkpoints/
+
+# Ignore data files
+data/
