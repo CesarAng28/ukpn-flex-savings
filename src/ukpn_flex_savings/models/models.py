@@ -4,11 +4,11 @@ from pydantic import BaseModel
 
 from ukpn_flex_savings.models import flex_types
 
-class FlexDispatch(BaseModel):
+class FlexDispatches(BaseModel):
     zone: str
     product: str
-    start_time: datetime
-    end_time: datetime
+    start_time_local: datetime
+    end_time_local: datetime
     utilisation_mw: float
     technology: str
     dispatch_type: flex_types.FlexDispatchType
