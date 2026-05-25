@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, time
 
 from pydantic import BaseModel
 
@@ -9,11 +9,11 @@ class FlexDispatches(BaseModel):
     product: str
     start_time_local: datetime
     end_time_local: datetime
-    utilisation_mw: float
+    utilisation_mw_req: float
     technology: str
-    dispatch_type: flex_types.FlexDispatchType
+    dispatch_type: flex_types.FlexibilityType
     hours_requested: float
-    time: datetime
+    time_utc: time
     
     
     

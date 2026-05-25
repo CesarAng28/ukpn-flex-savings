@@ -12,7 +12,7 @@ app = typer.Typer()
 @app.command()
 def fetch_flex_dispatches() -> None:
     ukpn_connector = UKPNFlexDispatchesConnector(settings.ukpn_dispatches_url, settings.ukpn_api_key)
-    repository = UKPNFlexDispatchesRepository(settings.DATA_DIR)
+    repository = UKPNFlexDispatchesRepository(settings.data_dir)
     
     
     service = UKPNFlexDispatchesService(ukpn_connector, repository)

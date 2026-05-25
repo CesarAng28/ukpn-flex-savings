@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, time 
 import httpx
 import polars as pl
 import pandas as pd
@@ -27,9 +27,11 @@ class UKPNFlexDispatchesConnector:
         print(data)
         df = pl.DataFrame(data["results"])
         print(df.head())
+        df = df.with_columns(pl.col("start_time_local").str.to_datetime(time_zone="UTC").alias("start_time_local"),
+                       pl.col("end_time_local").str.to_datetime(time_zone="UTC").alias("end_time_local"),
+                       pl.col("time_utc").str.slice(0, 8).str.strptime(pl.Time, format="%H:%M:%S").alias("time_utc"))
         df = self.validate_dispatches(df)
-        return df.with_columns(pl.col("start_time_local").str.to_datetime(time_zone="UTC").alias("start_time_local"),
-                       pl.col("end_time_local").str.to_datetime(time_zone="UTC").alias("end_time_local"))
+        return df
         
     def validate_dispatches(self, dispatches: pl.DataFrame) -> pl.DataFrame:
         
