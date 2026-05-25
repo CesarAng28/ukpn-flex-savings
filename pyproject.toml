@@ -27,4 +27,4 @@ dev = [
 ]
 
 [project.scripts]   
-ukpn-flex = "ukpn_flex_savings.cli:app"
+ukpn-flex = "ukpn_flex_savings.cli.main:app"
